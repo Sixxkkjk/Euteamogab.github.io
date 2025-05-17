@@ -1,0 +1,126 @@
+body {
+  background: linear-gradient(to right, #ffe1e1, #ffe9f5);
+  font-family: 'Comic Sans MS', cursive;
+  text-align: center;
+  padding: 50px;
+  overflow: hidden;
+}
+
+h1 {
+  font-size: 2.5em;
+  color: #ff69b4;
+}
+
+p {
+  font-size: 1.2em;
+  color: #444;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 1em;
+  background-color: #ffb6c1;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #ff69b4;
+  color: white;
+}
+
+.oculto {
+  display: none;
+}
+
+#confeteCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.cartas {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 40px;
+}
+
+.flip-card {
+  background-color: transparent;
+  width: 180px;
+  height: 200px;
+  perspective: 1000px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1em;
+  font-weight: bold;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.flip-card-front {
+  background: #ffc0cb;
+  color: white;
+}
+
+.flip-card-back {
+  background: #fff0f5;
+  color: #333;
+  transform: rotateY(180deg);
+}
+
+#emoji-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.emoji {
+  position: absolute;
+  top: 100%;
+  font-size: 2em;
+  animation-name: flutuar;
+  animation-timing-function: ease-out;
+}
+
+@keyframes flutuar {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-120vh) scale(1.5);
+    opacity: 0;
+  }
+}
